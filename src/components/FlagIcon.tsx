@@ -1,8 +1,10 @@
 "use client";
 
+import { useId } from "react";
+
 interface FlagIconProps {
-  country1: "EU" | "US" | "GB";
-  country2: "EU" | "US" | "GB";
+  country1: "EU" | "US" | "GB" | "BE";
+  country2: "EU" | "US" | "GB" | "BE";
 }
 
 // EU Flag Component
@@ -31,6 +33,27 @@ function EUFlag({ id }: { id: string }) {
             );
           })}
         </g>
+      </g>
+    </svg>
+  );
+}
+
+// Belgium Flag Component - Black, Yellow, Red vertical stripes
+function BEFlag({ id }: { id: string }) {
+  return (
+    <svg viewBox="0 0 32 32" className="w-full h-full">
+      <defs>
+        <clipPath id={`${id}-beCircle`}>
+          <circle cx="16" cy="16" r="16"/>
+        </clipPath>
+      </defs>
+      <g clipPath={`url(#${id}-beCircle)`}>
+        {/* Black stripe - left third */}
+        <rect x="0" y="0" width="10.67" height="32" fill="#000000"/>
+        {/* Yellow stripe - middle third */}
+        <rect x="10.67" y="0" width="10.67" height="32" fill="#FFD700"/>
+        {/* Red stripe - right third */}
+        <rect x="21.33" y="0" width="10.67" height="32" fill="#ED2939"/>
       </g>
     </svg>
   );
@@ -106,24 +129,27 @@ const flagComponents = {
   EU: EUFlag,
   US: USFlag,
   GB: GBFlag,
+  BE: BEFlag,
 };
 
 export default function FlagIcon({ country1, country2 }: FlagIconProps) {
-  const Flag1 = flagComponents[country1];
-  const Flag2 = flagComponents[country2];
-  const uniqueId = `flag-${Math.random().toString(36).substr(2, 9)}`;
+  const Flag1 = flagComponents[country2];
+  const Flag2 = flagComponents[country1];
+  const reactId = useId();
+  // Clean up React's useId() to make it safe for SVG IDs (remove colons)
+  const uniqueId = `flag-${reactId.replace(/:/g, '')}-${country1}-${country2}`;
   
   return (
-    <div className="relative w-12 h-8 flex-shrink-0">
-      {/* Back flag (second country) - slightly to the right */}
-      <div className="absolute right-0 top-0 w-8 h-8 rounded-full overflow-hidden border-2 border-[#0d0d0d]">
-        <Flag2 id={`${uniqueId}-2`} />
-      </div>
-      {/* Front flag (first country) - overlapping */}
-      <div className="absolute left-0 top-0 w-8 h-8 rounded-full overflow-hidden border-2 border-[#0d0d0d] z-10">
+    <div className="relative w-12 h-10 flex-shrink-0">
+      {/* Back flag */}
+      <div className="absolute right-0 top-1 w-9 h-9 rounded-full overflow-hidden border-2 border-white z-10">
         <Flag1 id={`${uniqueId}-1`} />
+      </div>
+  
+      {/* Front flag */}
+      <div className="absolute left-0 -top-1 w-9 h-9 rounded-full overflow-hidden border-2 border-white z-0">
+        <Flag2 id={`${uniqueId}-2`} />
       </div>
     </div>
   );
 }
-
