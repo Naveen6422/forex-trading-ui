@@ -4,16 +4,9 @@ A pixel-perfect recreation of a mobile forex trading app UI built with Next.js 1
 
 ## 🚀 Live Demo
 
-[View Live Demo](https://your-deployment-url.vercel.app)
+[View Live Demo](https://forex-trading-ui-git-master-naveens-projects-70f8aefe.vercel.app/)
 
-## 📸 Screenshot
-
-The app displays a forex trading interface with:
-- Header with menu and filter icons
-- Scrollable category tabs (Favourites, Forex, Crypto, Indices, Derivatives)
-- Currency pair cards with flags, prices, and change indicators
-- Bottom navigation bar (Home, Trade, History, Profile)
-
+#
 ## 🛠 Tech Stack
 
 - **Framework**: Next.js 16 (App Router)
@@ -38,18 +31,6 @@ src/
     ├── BottomNavigation.tsx # Bottom tab bar
     └── index.ts         # Component exports
 ```
-
-## 🎨 Features
-
-- ✅ Pixel-perfect UI matching the provided design
-- ✅ Fully responsive (mobile-first approach)
-- ✅ Dark theme with proper color scheme
-- ✅ Interactive tabs and navigation
-- ✅ Custom SVG flag icons (EU, US, GB)
-- ✅ Price highlighting with color-coded decimals
-- ✅ Semantic HTML with accessibility in mind
-- ✅ Smooth hover/active state transitions
-- ✅ Clean, reusable component architecture
 
 ## 🚀 Getting Started
 
@@ -85,31 +66,3 @@ npm run build
 npm start
 ```
 
-## 📦 Deployment
-
-### Vercel (Recommended)
-
-1. Push your code to GitHub
-2. Import the project in [Vercel](https://vercel.com)
-3. Deploy with one click
-
-### Netlify
-
-1. Push your code to GitHub
-2. Connect to [Netlify](https://netlify.com)
-3. Set build command: `npm run build`
-4. Set publish directory: `.next`
-
-## 🎯 Evaluation Criteria Met
-
-| Criteria | Implementation |
-|----------|---------------|
-| UI Accuracy | Exact match of colors, spacing, typography, and layout |
-| Responsiveness | Mobile-first design, scales smoothly on all devices |
-| Code Quality | Clean component structure, TypeScript, proper naming |
-| Interactivity | Functional tabs, navigation, hover states |
-| Performance | Optimized Next.js build, minimal dependencies |
-
-## 📝 License
-
-MIT License - feel free to use this project for learning or reference.
