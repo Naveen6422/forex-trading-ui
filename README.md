@@ -4,7 +4,7 @@ A pixel-perfect recreation of a mobile forex trading app UI built with Next.js 1
 
 ## 🚀 Live Demo
 
-[View Live Demo](https://forex-trading-ui-git-master-naveens-projects-70f8aefe.vercel.app/)
+[View Live Demo](https://forex-trading-ui.vercel.app/)
 
 #
 ## 🛠 Tech Stack
